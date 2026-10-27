@@ -21,8 +21,9 @@ export function ScoopVisual({
   const [useFallbackPng, setUseFallbackPng] = useState(false);
   const [imageError, setImageError] = useState(false);
 
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   // Fast WebP by default (~40KB), fallback to optimized PNG (~90KB)
-  const imageSrc = useFallbackPng ? `/${id}.png` : `/${id}.webp`;
+  const imageSrc = useFallbackPng ? `${basePath}/${id}.png` : `${basePath}/${id}.webp`;
 
   const sizeClasses = isLarge
     ? "w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56"
