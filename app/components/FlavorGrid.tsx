@@ -14,6 +14,17 @@ export function FlavorGrid({ onPurchase, selectedCategory }: FlavorGridProps) {
   // Default selected flavor is Coconut Stracciatella (matching the uploaded image)
   const [selectedId, setSelectedId] = useState<string>("coconut-stracciatella");
 
+  // Pré-carrega todas as imagens de ingredientes em cache para troca instantânea ao clicar
+  React.useEffect(() => {
+    FLAVORS.forEach((flavor) => {
+      const src = flavor.ingredientImage || flavor.detailImage;
+      if (src && typeof window !== "undefined") {
+        const img = new window.Image();
+        img.src = src;
+      }
+    });
+  }, []);
+
   const filteredFlavors =
     selectedCategory === "all"
       ? FLAVORS

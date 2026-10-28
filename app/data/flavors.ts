@@ -8,6 +8,7 @@ export interface Flavor {
   scoopColor: string;
   scoopImage: string;
   detailImage: string;
+  ingredientImage: string;
   dietaryBadges: {
     label: string;
     sublabel: string;
@@ -21,12 +22,13 @@ export const FLAVORS: Flavor[] = [
     name: "COCO STRACCIATELLA",
     subtitle: "COM LASCAS DE CHOCOLATE MEIO-AMARGO",
     description:
-      "Feito com ingredientes nobres rigorosamente selecionados por Nancy Silverton e sua equipe gastronômica. O leite fresco cria uma textura aveludada única, combinada perfeitamente com fios crocantes de chocolate meio-amargo.",
+      "Feito com ingredientes nobres rigorosamente selecionados por Nancy Silverton e sua equipe gastronômica. O leite fresco cria uma textura aveludada única, combinada perfeitamente com fios crocantes de chocolate meio-amargo e coco fresco.",
     allergens: "Alérgenos: Frutos de casca rija (coco). Não contém glúten.",
     category: "Gelato",
     scoopColor: "#e6e0d8",
     scoopImage: "/coconut-stracciatella.webp",
-    detailImage: "/coconut-stracciatella.jpg",
+    detailImage: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=700&auto=format&fit=crop",
+    ingredientImage: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?q=80&w=700&auto=format&fit=crop",
     dietaryBadges: [
       { label: "SEM", sublabel: "GLÚTEN", icon: "glutenFree" },
       { label: "NÃO", sublabel: "TRANSGÊNICO", icon: "nonGmo" },
@@ -39,12 +41,13 @@ export const FLAVORS: Flavor[] = [
     name: "ABÓBORA COM BRANDY",
     subtitle: "COM REDUÇÃO DE BRANDY DA CALIFÓRNIA E ESPECIARIAS",
     description:
-      "Abóboras doces assadas lentamente e incorporadas ao creme de leite fresco orgânico, aromatizadas com canela, noz-moscada ralada na hora e brandy da Califórnia envelhecido em barris de carvalho.",
+      "Abóboras doces assadas lentamente e incorporadas ao creme de leite fresco orgânico, aromatizadas com canela em pau, noz-moscada ralada na hora e brandy da Califórnia envelhecido em barris de carvalho.",
     allergens: "Alérgenos: Contém Leite e Álcool.",
     category: "Gelato",
     scoopColor: "#c88548",
     scoopImage: "/pumpkin-brandy.webp",
-    detailImage: "/pumpkin-brandy.jpg",
+    detailImage: "https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?q=80&w=700&auto=format&fit=crop",
+    ingredientImage: "https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?q=80&w=700&auto=format&fit=crop",
     dietaryBadges: [
       { label: "SEM", sublabel: "GLÚTEN", icon: "glutenFree" },
       { label: "NÃO", sublabel: "TRANSGÊNICO", icon: "nonGmo" },
@@ -61,7 +64,8 @@ export const FLAVORS: Flavor[] = [
     category: "Gelato",
     scoopColor: "#b88958",
     scoopImage: "/butterscotch-budino.webp",
-    detailImage: "/butterscotch-budino.jpg",
+    detailImage: "https://images.unsplash.com/photo-1579372786545-d24232daf58c?q=80&w=700&auto=format&fit=crop",
+    ingredientImage: "https://images.unsplash.com/photo-1579372786545-d24232daf58c?q=80&w=700&auto=format&fit=crop",
     dietaryBadges: [
       { label: "SEM", sublabel: "GLÚTEN", icon: "glutenFree" },
       { label: "NÃO", sublabel: "TRANSGÊNICO", icon: "nonGmo" },
@@ -78,7 +82,8 @@ export const FLAVORS: Flavor[] = [
     category: "Sorbetto",
     scoopColor: "#e6b349",
     scoopImage: "/passion-fruit.webp",
-    detailImage: "/passion-fruit.jpg",
+    detailImage: "https://images.unsplash.com/photo-1528825871115-3581a5387919?q=80&w=700&auto=format&fit=crop",
+    ingredientImage: "https://images.unsplash.com/photo-1528825871115-3581a5387919?q=80&w=700&auto=format&fit=crop",
     dietaryBadges: [
       { label: "SEM", sublabel: "GLÚTEN", icon: "glutenFree" },
       { label: "NÃO", sublabel: "TRANSGÊNICO", icon: "nonGmo" },
@@ -96,7 +101,8 @@ export const FLAVORS: Flavor[] = [
     category: "Gelato",
     scoopColor: "#c9b69c",
     scoopImage: "/roasted-banana.webp",
-    detailImage: "/roasted-banana.jpg",
+    detailImage: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?q=80&w=700&auto=format&fit=crop",
+    ingredientImage: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?q=80&w=700&auto=format&fit=crop",
     dietaryBadges: [
       { label: "SEM", sublabel: "GLÚTEN", icon: "glutenFree" },
       { label: "NÃO", sublabel: "TRANSGÊNICO", icon: "nonGmo" },
@@ -113,7 +119,8 @@ export const FLAVORS: Flavor[] = [
     category: "Sorbetto",
     scoopColor: "#47281e",
     scoopImage: "/chocolate-fondente.webp",
-    detailImage: "/chocolate-fondente.jpg",
+    detailImage: "https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=700&auto=format&fit=crop",
+    ingredientImage: "https://images.unsplash.com/photo-1511381939415-e44015466834?q=80&w=700&auto=format&fit=crop",
     dietaryBadges: [
       { label: "SEM", sublabel: "GLÚTEN", icon: "glutenFree" },
       { label: "NÃO", sublabel: "TRANSGÊNICO", icon: "nonGmo" },
@@ -131,7 +138,8 @@ export const FLAVORS: Flavor[] = [
     category: "Gelato",
     scoopColor: "#d9cec1",
     scoopImage: "/amarena-cherry.webp",
-    detailImage: "/amarena-cherry.jpg",
+    detailImage: "https://images.unsplash.com/photo-1528821128474-27f963b062bf?q=80&w=700&auto=format&fit=crop",
+    ingredientImage: "https://images.unsplash.com/photo-1528821128474-27f963b062bf?q=80&w=700&auto=format&fit=crop",
     dietaryBadges: [
       { label: "SEM", sublabel: "GLÚTEN", icon: "glutenFree" },
       { label: "NÃO", sublabel: "TRANSGÊNICO", icon: "nonGmo" },
@@ -148,7 +156,8 @@ export const FLAVORS: Flavor[] = [
     category: "Gelato",
     scoopColor: "#b88a5d",
     scoopImage: "/salted-peanut-butter.webp",
-    detailImage: "/salted-peanut-butter.jpg",
+    detailImage: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=700&auto=format&fit=crop",
+    ingredientImage: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=700&auto=format&fit=crop",
     dietaryBadges: [
       { label: "SEM", sublabel: "GLÚTEN", icon: "glutenFree" },
       { label: "NÃO", sublabel: "TRANSGÊNICO", icon: "nonGmo" },
@@ -165,7 +174,8 @@ export const FLAVORS: Flavor[] = [
     category: "Gelato",
     scoopColor: "#e0d7c3",
     scoopImage: "/rum-raisin.webp",
-    detailImage: "/rum-raisin.jpg",
+    detailImage: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=700&auto=format&fit=crop",
+    ingredientImage: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=700&auto=format&fit=crop",
     dietaryBadges: [
       { label: "SEM", sublabel: "GLÚTEN", icon: "glutenFree" },
       { label: "NÃO", sublabel: "TRANSGÊNICO", icon: "nonGmo" },
@@ -182,7 +192,8 @@ export const FLAVORS: Flavor[] = [
     category: "Gelato",
     scoopColor: "#8f6745",
     scoopImage: "/spiced-stumptown-coffee.webp",
-    detailImage: "/spiced-stumptown-coffee.jpg",
+    detailImage: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=700&auto=format&fit=crop",
+    ingredientImage: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=700&auto=format&fit=crop",
     dietaryBadges: [
       { label: "SEM", sublabel: "GLÚTEN", icon: "glutenFree" },
       { label: "NÃO", sublabel: "TRANSGÊNICO", icon: "nonGmo" },
@@ -199,7 +210,8 @@ export const FLAVORS: Flavor[] = [
     category: "Sorbetto",
     scoopColor: "#842646",
     scoopImage: "/frutti-di-bosco.webp",
-    detailImage: "/frutti-di-bosco.jpg",
+    detailImage: "https://images.unsplash.com/photo-1498557850523-fd3d118b962e?q=80&w=700&auto=format&fit=crop",
+    ingredientImage: "https://images.unsplash.com/photo-1498557850523-fd3d118b962e?q=80&w=700&auto=format&fit=crop",
     dietaryBadges: [
       { label: "SEM", sublabel: "GLÚTEN", icon: "glutenFree" },
       { label: "NÃO", sublabel: "TRANSGÊNICO", icon: "nonGmo" },
