@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Flavor } from "../data/flavors";
 import { DietaryBadge } from "./DietaryBadge";
+import { ScoopVisual } from "./ScoopVisual";
 
 interface FlavorDetailCardProps {
   flavor: Flavor;
@@ -11,23 +12,62 @@ interface FlavorDetailCardProps {
 }
 
 export function FlavorDetailCard({ flavor, onPurchase }: FlavorDetailCardProps) {
+  const [viewMode, setViewMode] = useState<"product" | "scoop">("product");
+  const [imgError, setImgError] = useState(false);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+  // Resetar estados quando trocar de sabor
+  React.useEffect(() => {
+    setViewMode("product");
+    setImgError(false);
+  }, [flavor.id]);
+
+  const detailImg = flavor.detailImage.startsWith("/")
+    ? `${basePath}${flavor.detailImage}`
+    : flavor.detailImage;
+
   return (
     <div className="w-full bg-[#ffffff] border border-[#ded5c8] shadow-md my-8 transition-all duration-300">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 p-6 sm:p-8 md:p-10 items-center">
-        {/* Lado Esquerdo: Fotografia de Ingredientes e Apresentação */}
-        <div className="md:col-span-5 relative w-full aspect-square sm:aspect-[4/3] md:aspect-square overflow-hidden bg-[#f4ede4] border border-[#e8dfd2]">
-          <Image
-            src={flavor.detailImage}
-            alt={`Ingredientes e apresentação de ${flavor.name}`}
-            fill
-            sizes="(max-width: 768px) 100vw, 40vw"
-            className="object-cover"
-            priority
-          />
+        {/* Lado Esquerdo: Fotografia do Sabor Real / Pote */}
+        <div className="md:col-span-5 relative w-full aspect-square sm:aspect-[4/3] md:aspect-square overflow-hidden bg-[#f4ede4] border border-[#e8dfd2] flex items-center justify-center group">
+          {viewMode === "product" && !imgError ? (
+            <Image
+              src={detailImg}
+              alt={`Apresentação de ${flavor.name}`}
+              fill
+              sizes="(max-width: 768px) 100vw, 40vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              priority
+              onError={() => setImgError(true)}
+            />
+          ) : (
+            <div className="p-8 flex items-center justify-center w-full h-full bg-[#faf6f0]">
+              <ScoopVisual id={flavor.id} name={flavor.name} isLarge={true} />
+            </div>
+          )}
+
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2.5 py-1 text-[10px] tracking-widest uppercase font-semibold text-[#543b2d]">
+
+          {/* Categoria */}
+          <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 text-[10px] tracking-widest uppercase font-semibold text-[#543b2d] shadow-xs">
             {flavor.category}
           </div>
+
+          {/* Botão de Alternar Visualização */}
+          <button
+            onClick={() => {
+              setImgError(false);
+              setViewMode(viewMode === "product" ? "scoop" : "product");
+            }}
+            className="absolute bottom-3 right-3 bg-white/90 hover:bg-white text-[#4a3427] text-[10px] tracking-wider font-semibold uppercase px-2.5 py-1.5 shadow-sm transition-all flex items-center gap-1.5 cursor-pointer z-10"
+            title="Alternar visão"
+          >
+            <span>{viewMode === "product" ? "Ver Bola de Gelato" : "Ver Pote"}</span>
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </button>
         </div>
 
         {/* Lado Direito: História do Sabor, Ingredientes, Alérgenos e Compra */}
