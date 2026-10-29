@@ -16,11 +16,13 @@ export function FlavorGrid({ onPurchase, selectedCategory }: FlavorGridProps) {
 
   // Pré-carrega todas as imagens de ingredientes em cache para troca instantânea ao clicar
   React.useEffect(() => {
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
     FLAVORS.forEach((flavor) => {
       const src = flavor.ingredientImage || flavor.detailImage;
       if (src && typeof window !== "undefined") {
+        const fullSrc = src.startsWith("/") ? `${basePath}${src}` : src;
         const img = new window.Image();
-        img.src = src;
+        img.src = fullSrc;
       }
     });
   }, []);

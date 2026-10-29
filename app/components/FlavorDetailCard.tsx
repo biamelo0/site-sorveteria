@@ -11,7 +11,9 @@ interface FlavorDetailCardProps {
 }
 
 export function FlavorDetailCard({ flavor, onPurchase }: FlavorDetailCardProps) {
-  const ingredientSrc = flavor.ingredientImage || flavor.detailImage;
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const rawSrc = flavor.ingredientImage || flavor.detailImage;
+  const ingredientSrc = rawSrc.startsWith("/") ? `${basePath}${rawSrc}` : rawSrc;
 
   return (
     <div className="w-full bg-[#ffffff] border border-[#ded5c8] shadow-md my-8 transition-all duration-300">
